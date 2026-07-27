@@ -1,14 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import '../Styles/navigation.css'
-import Price from './Pages/Price.js'
-import Contacts from './Pages/Contacts.js'
+import Price from './Pages/Price'
+import Contacts from './Pages/Contacts'
 import Politics from "./Pages/Politics"
 
-export default function Navigation(props){
-	const baseClassName = 'navigation__tab';
-	const activeClassName = baseClassName + ' navigation__active';
+export default function Navigation(){
+	const baseClassName = 'navigation__tab'
+	const activeClassName = baseClassName + ' navigation__active'
 	const pagesArr = [Price, Contacts, Politics]
+	const location = useLocation()
 
 	function getLinks(arr){
 		return arr.map((item, index) => {
@@ -16,7 +17,7 @@ export default function Navigation(props){
 				<Link
 					key={index}
 					to={item.url}
-					className={props.active === item.name ? activeClassName : baseClassName}>
+					className={location.pathname === item.url ? activeClassName : baseClassName}>
 					{item.name}
 				</Link>
 			)

@@ -1,19 +1,28 @@
 import React from 'react';
-import { mainOffice, mk1 } from '../Offices/allOffices.js';
-import ReactSwipe from 'react-swipe';
+import { mainOffice, mk1 } from '../Offices/allOffices.js'
+import ReactSwipe from 'react-swipe'
+import '../Styles/header.css'
+import logo from '../images/logo.jpg'
+import photo1 from '../images/2.jpg'
+import photo2 from '../images/3.jpg'
+import photo3 from '../images/4.jpg'
+import photo4 from '../images/6.jpg'
+import photo5 from '../images/7.jpg'
 
-import '../Styles/header.css';
-import logo from '../images/logo.jpg';
-import photo1 from '../images/2.jpg';
-import photo2 from '../images/3.jpg';
-import photo3 from '../images/4.jpg';
-import photo4 from '../images/6.jpg';
-import photo5 from '../images/7.jpg';
-import covidFull from '../images/covid-full.jpg'
+function Carousel(){
+	return(
+		<ReactSwipe className="carousel" swipeOptions={{continuous: true, auto: 5000, speed: 700} }>
+			<div><img src={photo1} alt=""/></div>
+			<div><img src={photo2} alt=""/></div>
+			<div><img src={photo3} alt=""/></div>
+			<div><img src={photo4} alt=""/></div>
+			<div><img src={photo5} alt=""/></div>
+		</ReactSwipe>
+	)
+}
 
 
 export default class Header extends React.Component{
-
 	render(){
 		// todo: сделать программно вывод инфо о всех офисах, как с картами
 		return(
@@ -66,16 +75,4 @@ export default class Header extends React.Component{
 		)
 	}
 
-}
-
-function Carousel(){
-	return(
-		<ReactSwipe className="carousel" swipeOptions={{continuous: true, auto: 5000, speed: 700} }>
-            <div><img src={photo1} alt=""/></div>
-            <div><img src={photo2} alt=""/></div>
-            <div><img src={photo3} alt=""/></div>
-            <div><img src={photo4} alt=""/></div>
-            <div><img src={photo5} alt=""/></div>
-        </ReactSwipe>
-	)
 }

@@ -1,21 +1,26 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Contacts from './Pages/Contacts.js'
-import Price from './Pages/Price.js'
-import Page404 from './Pages/Page404.js'
+import Contacts from './Pages/Contacts'
+import Price from './Pages/Price'
+import Page404 from './Pages/Page404'
 import Politics from "./Pages/Politics"
+import IPage from "./Pages/IPage"
+import PageContent from "./Pages/PageContent"
 
 export default function App() {
+	const routes = [Contacts, Price, Politics]
 	return(
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<Price.element />} />
-				<Route path={Contacts.url} element={<Contacts.element />} />
-				<Route path={Price.url} element={<Price.element />} />
-				<Route path={Politics.url} element={<Politics.element />} />
-				<Route path={Page404.url} element={<Page404.element />} />
+				<Route path={'/'} element={PageContent(Price.element)} />
+				{routes.map(route => makeRoute(route))}
 		   </Routes>
 		</BrowserRouter>
 	)
+}
+
+function makeRoute(page: IPage) {
+	const element = PageContent(page.element)
+	return <Route path={page.url} element={element} key={page.url}/>
 }
 
