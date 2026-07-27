@@ -1,24 +1,10 @@
-import React from 'react';
-import allOffices from '../allOffices.ts';
-import '../Styles/footer.css';
-import greenwave from '../images/greenwave.png';
-import vk from '../images/vk.png';
+import React, {ReactElement} from 'react'
+import allOffices, {IOffice} from '../allOffices'
+import '../Styles/footer.css'
+import greenwave from '../images/greenwave.png'
+import vk from '../images/vk.png'
 
 export default function Footer(){
-
-	function getContacts(arr){
-		return arr.map((item, index) => {
-			return(
-				<div key={index}>
-					<p>{item.header}</p>
-					<p>{item.address}</p>
-					<p>Телефон: {item.phone}</p>
-					{item.email ? <p>Email: {item.email}</p> : null}
-				</div>
-			)
-		});
-	}
-
 	return(
 		<footer className='footer'>
 			<div className='footer__partners'>
@@ -34,7 +20,12 @@ export default function Footer(){
 		   </div>
 		   	<div className="footer__contacts">
 				<h3>Адреса и контакты:</h3>
-				{getContacts(allOffices)}
+				{allOffices.map((office: IOffice, ) :ReactElement => <div key={office.id}>
+					<p>{office.header}</p>
+					<p>{office.address}</p>
+					<p>Телефон: {office.phone}</p>
+					{office.email ? <p>Email: {office.email}</p> : null}
+				</div>)}
       		</div>
       		<div className="footer__socials">
    				<h3>Социальные сети:</h3>

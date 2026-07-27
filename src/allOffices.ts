@@ -1,4 +1,4 @@
-interface IOffice {
+export interface IOffice {
 	id: string,
 	header: string,
 	address: string,
@@ -10,7 +10,6 @@ interface IOffice {
 	locationForLink: string,
 	locationForFrame: string
 }
-export type {IOffice}
 
 const mainOffice: IOffice = {
 	id: "main",
