@@ -1,5 +1,5 @@
 import React from 'react';
-import { mainOffice, mk1 } from '../Offices/allOffices.js'
+import { mainOffice, mk1 } from '../allOffices.ts'
 import ReactSwipe from 'react-swipe'
 import '../Styles/header.css'
 import logo from '../images/logo.jpg'

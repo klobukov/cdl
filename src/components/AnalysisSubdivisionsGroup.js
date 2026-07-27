@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from "axios";
-import { baseURL } from '../Constants/baseURL.js';
+import { baseURL } from '../baseURL.js';
 import AnalysisSubdivision from './AnalysisSubdivision.js';
 import '../Styles/subdivisionsGroup.css';
 

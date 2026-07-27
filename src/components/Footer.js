@@ -1,5 +1,5 @@
 import React from 'react';
-import allOffices from '../Offices/allOffices.js';
+import allOffices from '../allOffices.ts';
 import '../Styles/footer.css';
 import greenwave from '../images/greenwave.png';
 import vk from '../images/vk.png';
