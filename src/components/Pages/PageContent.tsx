@@ -4,12 +4,12 @@ import Navigation from "../Navigation"
 import Footer from "../Footer"
 import ArrowUp from "../ArrowUp"
 
-export default function PageContent(content: ReactNode) {
+export default function PageContent(children: ReactNode) {
     return <Fragment>
         <Header/>
         <Navigation/>
         <main>
-            {content}
+            {children}
         </main>
         <Footer/>
         <ArrowUp/>

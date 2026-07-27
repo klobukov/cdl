@@ -1,21 +1,22 @@
-import React from 'react'
+import React, {JSX} from 'react'
 import {Link, useLocation} from 'react-router-dom'
 import '../Styles/navigation.css'
 import Price from './Pages/Price'
 import Contacts from './Pages/Contacts'
 import Politics from "./Pages/Politics"
+import IPage from "./Pages/IPage"
 
-export default function Navigation(){
+export default function Navigation():JSX.Element{
 	const baseClassName = 'navigation__tab'
 	const activeClassName = baseClassName + ' navigation__active'
 	const pagesArr = [Price, Contacts, Politics]
 	const location = useLocation()
 
-	function getLinks(arr){
-		return arr.map((item, index) => {
+	function getLinks(arr: IPage[]){
+		return arr.map(item => {
 			return(
 				<Link
-					key={index}
+					key={item.url}
 					to={item.url}
 					className={location.pathname === item.url ? activeClassName : baseClassName}>
 					{item.name}
