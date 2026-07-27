@@ -4,13 +4,13 @@ import IPage from './IPage'
 const Politics: IPage = {
     name: 'Политика обработки персональный данных',
     url: '/politics',
-    element: politicsContent()
+    element: politicsElement()
 }
 
 export default Politics
 
 
-function politicsContent() {
+function politicsElement() {
   return <div style={{textAlign: 'center', marginTop: 12}}>
     <div style={{fontWeight: 'bold',fontSize: 20}}>Политика обработки персональных данных</div>
     <div style={{fontWeight: 'bold',fontSize: 20}}>в OOO «Крымская диагностическая лаборатория»</div>

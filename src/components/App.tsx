@@ -8,7 +8,7 @@ import IPage from "./Pages/IPage"
 import PageContent from "./Pages/PageContent"
 
 export default function App() {
-	const routes = [Contacts, Price, Politics]
+	const routes = [Contacts, Price, Politics, Page404]
 	return(
 		<BrowserRouter>
 			<Routes>
@@ -19,7 +19,7 @@ export default function App() {
 }
 
 function makeRoute(page: IPage) {
-	const element = PageContent(page.element)
+	const element = page.customElement ? page.element : PageContent(page.element)
 	return <Route path={page.url} element={element} key={page.url}/>
 }
 
