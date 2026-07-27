@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Contacts from './Pages/Contacts'
 import Price from './Pages/Price'
@@ -12,7 +12,6 @@ export default function App() {
 	return(
 		<BrowserRouter>
 			<Routes>
-				<Route path={'/'} element={PageContent(Price.element)} />
 				{routes.map(route => makeRoute(route))}
 		   </Routes>
 		</BrowserRouter>

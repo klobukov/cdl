@@ -5,7 +5,7 @@ import IPage from "./IPage"
 
 const Price: IPage = {
 	name: 'Анализы и цены',
-	url: '/price',
+	url: '/',
 	element: <Fragment>
 		<Search/>
 		<AnalysisSubdivisionsGroup/>
