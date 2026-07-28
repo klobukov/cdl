@@ -45,7 +45,6 @@ export default function Search() :JSX.Element {
 
 	async function fastSearch(searchValue: string) :Promise<void> {
 		try {
-			console.log('1')
 			const res = await axios.get(baseURL + "backend/fastSearch.php",
 				{params: {search: searchValue}})
 			setfastResults(res.data)
@@ -72,7 +71,6 @@ export default function Search() :JSX.Element {
 
 		try {
 			const res = await axios.get(baseURL + "backend/search.php", {params: {search: val}})
-			console.log('search', res)
 			setSearchResults(res.data)
 		} catch(err) {
 			setSearchResults(errorMessage)
@@ -83,7 +81,6 @@ export default function Search() :JSX.Element {
 	}
 
 	function SearchResults(data: string[] | string) :JSX.Element {
-		console.log('data', data)
 		if (data.length === 0) {
 			return(
 				<div className="search__results">

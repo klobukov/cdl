@@ -32,7 +32,7 @@ export default function AnalysisSubdivision({name} :{name: string}){
 	function AnalysisList() :null | JSX.Element | JSX.Element[] {
 		if (!data) return null
 		if (data === "errorMessage") return <div>Ошибка подключения к базе данных..:(</div>
-		if (typeof data === "string") return null
+		if (typeof data === "string") return null // ts data.map -_-
 
 		return data.map((item :string[], index: number) => <div key={index}>
 			<div>{item[0]}</div>
