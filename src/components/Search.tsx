@@ -1,4 +1,4 @@
-import React, {JSX, useState, ChangeEvent, MouseEvent, useEffect} from 'react'
+import React, {JSX, useState, ChangeEvent, MouseEvent, useEffect, useRef} from 'react'
 import axios from "axios"
 import { baseURL } from '../baseURL'
 import '../Styles/search.css'
@@ -8,6 +8,7 @@ export default function Search() :JSX.Element {
 	const [searchResults, setSearchResults] = useState<string[] | string | null>(null)
 	const [fastResults, setfastResults] = useState<string[] | null>(null)
 	const errorMessage = "Ошибка подключения к базе данных..:("
+	const timerRef = useRef<NodeJS.Timeout | null>(null)
 
 	useEffect(() => {
 		const removeFastResults = (e: Event) :void => {
@@ -17,7 +18,10 @@ export default function Search() :JSX.Element {
 		};
 
 		document.body.addEventListener('click', removeFastResults)
-		return () => document.body.removeEventListener('click', removeFastResults)
+		return () => {
+			if (timerRef.current) clearTimeout(timerRef.current)
+			document.body.removeEventListener('click', removeFastResults)
+		}
 	}, [])
 
 	return(
@@ -35,12 +39,11 @@ export default function Search() :JSX.Element {
 	)
 
 	function onInputChange(e: ChangeEvent<HTMLInputElement>) :void {
+		if (timerRef.current) clearTimeout(timerRef.current)
 		let value = e.target.value
 		setInputVal(value)
 		if (value.trim() === "") return
-		setTimeout(() => {
-			if (value === inputVal) fastSearch(value)
-		}, 500)
+		timerRef.current = setTimeout(() => fastSearch(value), 500)
 	}
 
 	async function fastSearch(searchValue: string) :Promise<void> {
@@ -54,6 +57,8 @@ export default function Search() :JSX.Element {
 	}
 
 	function FastResults(data: string[]) :JSX.Element | null {
+		if (data.length === 0) return null
+
 		return <ul className="search__fast">
 			{data.map((item: string, index: number) :JSX.Element => {
 				return <li key={index}
