@@ -1,32 +1,16 @@
-import React, {Fragment} from 'react'
-import Page from './functions/PageClassConstructor.js'
-import Header from '../Header.js'
-import Navigation from '../Navigation.js'
-import Footer from '../Footer.js'
-import ArrowUp from '../ArrowUp.js'
+import React from 'react'
+import IPage from './IPage'
 
-const name = "Политика обработки персональный данных"
-const url = "/politics"
-const output = function Price(){
-  return(
-    <Fragment>
-      <Header/>
-      <Navigation active={name}/>
-      <main>
-        {politicsContent()}
-      </main>
-      <Footer/>
-      <ArrowUp/>
-    </Fragment>
-  )
+const Politics: IPage = {
+    name: 'Политика обработки персональный данных',
+    url: '/politics',
+    element: politicsElement()
 }
 
-export default new Page(name, url, output);
+export default Politics
 
 
-
-
-function politicsContent() {
+function politicsElement() {
   return <div style={{textAlign: 'center', marginTop: 12}}>
     <div style={{fontWeight: 'bold',fontSize: 20}}>Политика обработки персональных данных</div>
     <div style={{fontWeight: 'bold',fontSize: 20}}>в OOO «Крымская диагностическая лаборатория»</div>
@@ -178,7 +162,7 @@ function politicsContent() {
   </div>
 }
 
-function block(header, content) {
+function block(header: string, content: string[]) {
   return <div style={{margin: 24}}>
     <div style={{fontWeight: 'bold', fontSize: 16}}>{header}</div>
     {content.map(abzac =>
