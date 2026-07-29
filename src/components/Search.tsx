@@ -1,7 +1,7 @@
 import React, {JSX, useState, ChangeEvent, MouseEvent, useEffect, useRef} from 'react'
 import axios from "axios"
 import { baseURL } from '../baseURL'
-import '../Styles/search.css'
+import '../Styles/search.scss'
 
 export default function Search() :JSX.Element {
 	const [inputVal, setInputVal] = useState('')
