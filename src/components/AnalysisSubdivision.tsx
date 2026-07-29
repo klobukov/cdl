@@ -1,7 +1,7 @@
 import React, {JSX, useEffect, useState} from 'react'
 import axios from "axios"
 import { baseURL } from '../baseURL'
-import '../Styles/subdivision.css'
+import '../Styles/subdivision.scss'
 
 export default function AnalysisSubdivision({name} :{name: string}){
 	const [show, setShow] = useState<boolean>(false)

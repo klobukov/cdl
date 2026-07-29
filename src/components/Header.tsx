@@ -2,7 +2,7 @@ import React from 'react';
 import { mainOffice, mk1 } from "../allOffices"
 // @ts-ignore
 import ReactSwipe from 'react-swipe'
-import '../Styles/header.css'
+import '../Styles/header.scss'
 import logo from '../images/logo.jpg'
 import photo1 from '../images/2.jpg'
 import photo2 from '../images/3.jpg'

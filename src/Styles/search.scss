@@ -46,6 +46,11 @@
 		td:first-child {
 			width: 50%;
 		}
+		tbody {
+			tr:hover {
+				background: $light-color;
+			}
+		}
 	}
 }
 

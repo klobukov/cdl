@@ -2,7 +2,7 @@ import React, {JSX, useEffect, useState} from 'react';
 import axios from "axios";
 import { baseURL } from '../baseURL'
 import AnalysisSubdivision from './AnalysisSubdivision'
-import '../Styles/subdivisionsGroup.css'
+import '../Styles/subdivisionsGroup.scss'
 
 export default function AnalysisSubdivisionsGroup() {
 	const [subdivisions, setSubdivisions] = useState<string[] | string | null>(null)

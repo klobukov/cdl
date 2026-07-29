@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link, useLocation} from 'react-router-dom'
-import '../../Styles/page404.css'
+import '../../Styles/page404.scss'
 import logo from '../../images/logo.jpg'
 import IPage from './IPage'
 

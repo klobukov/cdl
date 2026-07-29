@@ -1,6 +1,6 @@
 import React, {JSX} from 'react'
 import {Link, useLocation} from 'react-router-dom'
-import '../Styles/navigation.css'
+import '../Styles/navigation.scss'
 import Price from './Pages/Price'
 import Contacts from './Pages/Contacts'
 import Politics from "./Pages/Politics"
