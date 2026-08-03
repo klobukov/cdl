@@ -10,11 +10,11 @@ export default function Footer(){
 			<div className='footer__partners'>
 		   		<h3>Наши партнеры:</h3>
 		   	   	<div>
-		   	      <p><a href='http://greenw.org/' target='_blank' rel="noopener noreferrer"><img src={greenwave} alt="greenwave" title="greenwave"/></a></p>
+		   	      <p><a href='https://greenw-clinic.ru/' target='_blank' rel="noopener noreferrer"><img src={greenwave} alt="greenwave" title="greenwave"/></a></p>
 		   	      <p>Загородная балка,4</p>
 		   	      <p>
-		   	        тел. +7 (8692) 55-40-24<br/>
-		   	        тел: +7 (8692) 55-98-90
+		   	        тел. +7 (8692) 41-73-21<br/>
+		   	        тел: +7 (978) 006-25-35
 		   	     </p>
 		   	   </div>
 		   </div>
