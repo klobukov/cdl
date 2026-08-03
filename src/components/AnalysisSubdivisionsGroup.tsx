@@ -31,6 +31,7 @@ export default function AnalysisSubdivisionsGroup() {
 				<div>Название исследования</div>
 				<div>Срок выполнения (суток)</div>
 				<div>Цена (руб.) </div>
+				<div>Код номенклатуры</div>
 			</div>
 			<div className="subdivisionsGroup__tree">
 				<Subdivisions />
