@@ -40,7 +40,7 @@ export default function Search() :JSX.Element {
 
 	function onInputChange(e: ChangeEvent<HTMLInputElement>) :void {
 		if (timerRef.current) clearTimeout(timerRef.current)
-		let value = e.target.value
+		const value = e.target.value
 		setInputVal(value)
 		if (value.trim() === "") return
 		timerRef.current = setTimeout(() => fastSearch(value), 500)
@@ -51,7 +51,7 @@ export default function Search() :JSX.Element {
 			const res = await axios.get(baseURL + "backend/fastSearch.php",
 				{params: {search: searchValue}})
 			setfastResults(res.data)
-		} catch(err) {
+		} catch {
 			setfastResults(null)
 		}
 	}
@@ -77,7 +77,7 @@ export default function Search() :JSX.Element {
 		try {
 			const res = await axios.get(baseURL + "backend/search.php", {params: {search: val}})
 			setSearchResults(res.data)
-		} catch(err) {
+		} catch {
 			setSearchResults(errorMessage)
 		} finally {
 			setInputVal("")
