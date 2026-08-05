@@ -2,43 +2,56 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+}
 
 .header__info {
   width: 40%;
-  height: 100%; }
+  height: 100%;
+}
 
 .header__info span {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .header__info img {
-  width: 100%; }
+  width: 100%;
+}
 
 .header__info p {
-  font-size: 1.3em; }
+  font-size: 1.3em;
+}
 
 .header__slideShow {
   width: 50%;
   height: 100%;
-  margin-left: 1%; }
+  margin-left: 1%;
+}
 
 .header__slideShow img {
-  width: 100%; }
+  width: 100%;
+}
 
 .header__flr {
   width: 100%;
   margin-left: 3%;
   color: firebrick;
   font-size: 2em;
-  text-align: center; }
+  text-align: center;
+}
 
 .header__covid_container {
-  width: 50%; }
-  .header__covid_container img {
-    width: 100%; }
+  width: 50%;
+}
+.header__covid_container img {
+  width: 100%;
+}
 
 @media (max-width: 576px) {
   .header__info {
-    margin: auto; }
+    margin: auto;
+  }
   .header__slideShow {
-    display: none; } }
+    display: none;
+  }
+}

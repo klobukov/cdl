@@ -2,14 +2,19 @@
   max-width: 1366px;
   margin: 3% auto 0 auto;
   font-size: 14px;
-  font-family: "Helvetica Neue", 'Helvetica','Arial','sans-serif';
-  color: #333; }
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+  color: #333;
+}
 
 @media (max-width: 576px) {
   #root {
     font-size: 10px;
-    word-wrap: break-word; } }
+    word-wrap: break-word;
+  }
+}
 
 @media (max-width: 330px) {
   #root {
-    font-size: 8px; } }
+    font-size: 8px;
+  }
+}

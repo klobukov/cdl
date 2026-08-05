@@ -3,19 +3,30 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: #A6DEFFFF; }
+  background: #a6deffff;
+}
 
-.footer__partners, .footer__contacts, .footer__socials {
+.footer__partners,
+.footer__contacts,
+.footer__socials {
   width: 30%;
-  margin: 1%; }
+  margin: 1%;
+}
 
 .footer__contacts div p:first-child {
-  font-weight: 600; }
+  font-weight: 600;
+}
 
-.footer__socials img, .footer__partners img {
-  width: 75%; }
+.footer__socials img,
+.footer__partners img {
+  width: 75%;
+}
 
 @media (max-width: 576px) {
-  .footer__partners, .footer__contacts, .footer__socials {
+  .footer__partners,
+  .footer__contacts,
+  .footer__socials {
     width: 100%;
-    border-bottom: 1px solid #ddd; } }
+    border-bottom: 1px solid #ddd;
+  }
+}
