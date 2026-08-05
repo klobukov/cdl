@@ -18,7 +18,7 @@ function Page404Content() {
 	const url = location.pathname
 	return <div className="page404">
 		<Link to="/"><img src={logo} title="logo" alt="logo"/></Link>
-		<h1>По адресу <i>"{url}"</i> ничего не найдено. Попробуйте начать с главной страницы</h1>
+		<h1>По адресу <i>{url}</i> ничего не найдено. Попробуйте начать с главной страницы</h1>
 		<Link to="/">Главная страница</Link>
 	</div>
 }
