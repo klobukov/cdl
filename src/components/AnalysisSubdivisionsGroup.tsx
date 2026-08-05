@@ -16,7 +16,7 @@ export default function AnalysisSubdivisionsGroup() {
 					.filter((item :string) => item !== "Дополнительные услуги")
 					.concat("Дополнительные услуги")
 				setSubdivisions(sorted)
-			} catch (err) {
+			} catch {
 				setSubdivisions("Ошибка подключения к базе данных..:(")
 			}
 		}

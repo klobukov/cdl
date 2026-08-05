@@ -1,5 +1,7 @@
 * yarn lint fix all . test yarn lint_fix
 * yarn prettier --check - fix
+* yarn s sass warnings
+* merge to master
 * dev tools
 
 * FL.ru рег, трай найти первый заказ. параллельно ниже

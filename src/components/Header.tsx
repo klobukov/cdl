@@ -1,6 +1,5 @@
 import React from 'react';
 import { mainOffice, mk1 } from "../allOffices"
-// @ts-ignore
 import ReactSwipe from 'react-swipe'
 import '../Styles/header.scss'
 import logo from '../images/logo.jpg'
