@@ -3,23 +3,20 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Contacts from './Pages/Contacts'
 import Price from './Pages/Price'
 import Page404 from './Pages/Page404'
-import Politics from "./Pages/Politics"
-import IPage from "./Pages/IPage"
-import PageContent from "./Pages/PageContent"
+import Politics from './Pages/Politics'
+import IPage from './Pages/IPage'
+import PageContent from './Pages/PageContent'
 
 export default function App() {
-	const routes = [Contacts, Price, Politics, Page404]
-	return(
-		<BrowserRouter>
-			<Routes>
-				{routes.map(route => makeRoute(route))}
-		   </Routes>
-		</BrowserRouter>
-	)
+  const routes = [Contacts, Price, Politics, Page404]
+  return (
+    <BrowserRouter>
+      <Routes>{routes.map((route) => makeRoute(route))}</Routes>
+    </BrowserRouter>
+  )
 }
 
 function makeRoute(page: IPage) {
-	const element = page.customElement ? page.element : PageContent(page.element)
-	return <Route path={page.url} element={element} key={page.url}/>
+  const element = page.customElement ? page.element : PageContent(page.element)
+  return <Route path={page.url} element={element} key={page.url} />
 }
-

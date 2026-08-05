@@ -1,47 +1,47 @@
 @import '_variables.scss';
 
 .navigation {
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin-top: $big-margin;
-	font-size: $big-font;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: $big-margin;
+  font-size: $big-font;
 }
 
 .navigation a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .navigation__tab {
-	border-radius: 4px;
-	width: 30%;
-	min-height: 30px;
-	border: 1px solid $medium-color;
-	margin-left: $little-margin;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: $dark-color;
+  border-radius: 4px;
+  width: 30%;
+  min-height: 30px;
+  border: 1px solid $medium-color;
+  margin-left: $little-margin;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $dark-color;
 }
 
 .navigation__tab:hover {
-	background: $light-color;
+  background: $light-color;
 }
 
 .navigation__active {
-	color: white;
-	background: $dark-color;
+  color: white;
+  background: $dark-color;
 }
 
 .navigation__active:hover {
-	background: $dark-color;
+  background: $dark-color;
 }
 
 @media (max-width: 576px) {
-	.navigation__tab {
-		width: 100%;
-		margin-top: $little-margin;
-	}
+  .navigation__tab {
+    width: 100%;
+    margin-top: $little-margin;
+  }
 }

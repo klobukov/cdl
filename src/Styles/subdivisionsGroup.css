@@ -1,20 +1,26 @@
 .subdivisionsGroup {
-  border: 1px solid #A6DEFFFF;
+  border: 1px solid #a6deffff;
   margin-top: 3%;
-  padding: 1%; }
+  padding: 1%;
+}
 
 .subdivisionsGroup h1 {
   text-align: center;
-  color: blue; }
+  color: blue;
+}
 
 .subdivisionsGroup__header {
-  display: flex; }
-  .subdivisionsGroup__header div {
-    width: 25%;
-    font-size: 2em; }
-  .subdivisionsGroup__header div:first-child {
-    width: 47%; }
+  display: flex;
+}
+.subdivisionsGroup__header div {
+  width: 25%;
+  font-size: 2em;
+}
+.subdivisionsGroup__header div:first-child {
+  width: 47%;
+}
 
 .subdivisionsGroup__tree {
   border-top: 1px solid #ddd;
-  margin-top: 1%; }
+  margin-top: 1%;
+}

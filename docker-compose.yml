@@ -4,9 +4,9 @@ services:
     image: php:8.2-apache
     container_name: cdl_php
     ports:
-      - "8000:80"  # Снаружи порт 8000, внутри контейнера 80
+      - '8000:80' # Снаружи порт 8000, внутри контейнера 80
     volumes:
-      - ./:/var/www/html  # Монтируем всю папку проекта в корень веб-сервера
+      - ./:/var/www/html # Монтируем всю папку проекта в корень веб-сервера
     environment:
       PHP_DISPLAY_ERRORS: 1
       PHP_ERROR_REPORTING: E_ALL
@@ -21,7 +21,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: cdl
     ports:
-      - "3307:3306"
+      - '3307:3306'
     volumes:
       - mysql_data:/var/lib/mysql
       - ./services.sql:/docker-entrypoint-initdb.d/init.sql

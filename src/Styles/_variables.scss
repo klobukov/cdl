@@ -1,6 +1,6 @@
 //colors
-$light-color: #A6DEFFFF;
-$medium-color: #1E90FF;
+$light-color: #a6deffff;
+$medium-color: #1e90ff;
 $dark-color: #337ab7;
 $extra-color: blue;
 $weak-color: #ddd;
@@ -20,11 +20,11 @@ $extreme-font: 2em;
 
 //mixins
 @mixin button {
-	margin-left: $little-margin;
-	height: 26px;
-	width: 70px;
-	background: $dark-color;
-	color: white;
-	cursor: pointer;
-	border-radius: 4px;
+  margin-left: $little-margin;
+  height: 26px;
+  width: 70px;
+  background: $dark-color;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
 }

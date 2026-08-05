@@ -1,59 +1,59 @@
 @import '_variables.scss';
 
 .header {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .header__info {
-	width: 40%;
-	height: 100%;
+  width: 40%;
+  height: 100%;
 }
 
 .header__info span {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .header__info img {
-	width: 100%;
+  width: 100%;
 }
 
 .header__info p {
-	font-size: $big-font;
+  font-size: $big-font;
 }
 
 .header__slideShow {
-	width: 50%;
-	height: 100%;
-	margin-left: $little-margin;
+  width: 50%;
+  height: 100%;
+  margin-left: $little-margin;
 }
 
 .header__slideShow img {
-	width: 100%;
+  width: 100%;
 }
 
 .header__flr {
-	width: 100%;
-	margin-left: $big-margin;
-	color: $attention-color;
-	font-size: $extreme-font;
-	text-align: center;
+  width: 100%;
+  margin-left: $big-margin;
+  color: $attention-color;
+  font-size: $extreme-font;
+  text-align: center;
 }
 
 .header__covid_container {
-	width: 50%;
-	img {
-		width: 100%;
-	}
+  width: 50%;
+  img {
+    width: 100%;
+  }
 }
 
-@media (max-width: 576px){
-	.header__info{
-		margin: auto;
-	}
-	.header__slideShow{
-		display: none;
-	}
+@media (max-width: 576px) {
+  .header__info {
+    margin: auto;
+  }
+  .header__slideShow {
+    display: none;
+  }
 }

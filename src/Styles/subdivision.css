@@ -1,22 +1,29 @@
 .subdivision__analyzes {
-  padding-left: 1%; }
+  padding-left: 1%;
+}
 
 .subdivision__analyzes div {
   display: flex;
-  padding-top: 0.5%; }
-  .subdivision__analyzes div div {
-    width: 25%;
-    font-size: 1.3em; }
-  .subdivision__analyzes div div:first-child {
-    width: 50%; }
+  padding-top: 0.5%;
+}
+.subdivision__analyzes div div {
+  width: 25%;
+  font-size: 1.3em;
+}
+.subdivision__analyzes div div:first-child {
+  width: 50%;
+}
 
 .subdivision__analyzes div:hover {
-  background: #ddd; }
+  background: #ddd;
+}
 
 .subdivision__name {
   cursor: pointer;
   font-size: 2em;
-  padding: 2%; }
+  padding: 2%;
+}
 
 .subdivision__name:hover {
-  background: #A6DEFFFF; }
+  background: #a6deffff;
+}
