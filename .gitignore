@@ -2,3 +2,5 @@ node_modules/
 /.project
 build*
 .idea/*
+.next/
+next-env.d.ts

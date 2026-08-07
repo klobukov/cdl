@@ -60,7 +60,9 @@ export default function Search(): JSX.Element {
 
   async function fastSearch(searchValue: string): Promise<void> {
     try {
-      let res = await fetch(`${baseURL}backend/fastSearch.php?search=${encodeURIComponent(searchValue)}`)
+      let res = await fetch(
+        `${baseURL}backend/fastSearch.php?search=${encodeURIComponent(searchValue)}`,
+      )
       res = await res.json()
       setfastResults(res.data)
     } catch {

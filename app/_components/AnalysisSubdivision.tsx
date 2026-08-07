@@ -10,9 +10,9 @@ export default function AnalysisSubdivision({ name }: { name: string }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-          const url = `${baseURL}backend/analysisSubdivision.php?name=${encodeURIComponent(name)}`
-      let res = await fetch(url)
-          res = await res.json()
+        const url = `${baseURL}backend/analysisSubdivision.php?name=${encodeURIComponent(name)}`
+        let res = await fetch(url)
+        res = await res.json()
         setData(res.data)
       } catch {
         setData(error)

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React from 'react'
 import { mainOffice, mk1 } from '.././constants/allOffices'
 import ReactSwipe from 'react-swipe'
