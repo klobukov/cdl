@@ -22,5 +22,9 @@ export default defineConfig([
     rules: {
       'react/react-in-jsx-scope': 'off',
     },
+
   },
+  {
+    ignores: [".next/", "next-env.d.ts"]
+  }
 ])
