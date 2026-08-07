@@ -1,14 +1,15 @@
 'use client'
 import React from 'react'
 import { mainOffice, mk1 } from '.././constants/allOffices'
-import ReactSwipe from 'react-swipe'
 import '../Styles/header.scss'
-import logo from '../images/logo.jpg'
-import photo1 from '../images/2.jpg'
-import photo2 from '../images/3.jpg'
-import photo3 from '../images/4.jpg'
-import photo4 from '../images/6.jpg'
-import photo5 from '../images/7.jpg'
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
+
+const photo1 = '/images/1.jpg'
+const photo2 = '/images/2.jpg'
+const photo3 = '/images/3.jpg'
+const photo4 = '/images/4.jpg'
+const photo5 = '/images/5.jpg'
 
 export default class Header extends React.Component {
   render() {
@@ -17,7 +18,7 @@ export default class Header extends React.Component {
       <header className="header">
         <div className="header__info">
           <div>
-            <img src={logo} alt="Логотип" title="Логотип" />
+            <img src="/images/logo.jpg" alt="Логотип" />
           </div>
           <div>
             <p>
@@ -58,28 +59,24 @@ export default class Header extends React.Component {
 }
 
 function Carousel() {
+  const [emblaRef] = useEmblaCarousel({
+    loop: true,
+    autoplay: true,
+    duration: 50,
+    align: 'start',
+    containScroll: 'trimSnaps',
+    slidesToScroll: 1,
+  },[Autoplay({ delay: 5000 })])
+
   return (
-    <div className="header__slideShow">
-      <ReactSwipe
-        className="carousel"
-        swipeOptions={{ continuous: true, auto: 5000, speed: 700 }}
-      >
-        <div>
-          <img src={photo1} alt="" />
+      <div className="header__slideShow">
+        <div className="embla" ref={emblaRef}>
+          <div className="embla__container">
+            {[photo1, photo2, photo3, photo4, photo5].map((photo, index) => <div key={index} className="embla__slide">
+              <img src={photo} alt=""/>
+            </div>)}
+          </div>
         </div>
-        <div>
-          <img src={photo2} alt="" />
-        </div>
-        <div>
-          <img src={photo3} alt="" />
-        </div>
-        <div>
-          <img src={photo4} alt="" />
-        </div>
-        <div>
-          <img src={photo5} alt="" />
-        </div>
-      </ReactSwipe>
-    </div>
+      </div>
   )
 }

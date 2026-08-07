@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import '../Styles/page404.scss'
-import logo from '../images/logo.jpg'
+import logo from '../public/images/logo.jpg'
 import IPage from './IPage'
 
 const url = '*'

@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react'
 import allOffices, { IOffice } from '.././constants/allOffices'
 import '../Styles/footer.scss'
-import greenwave from '../images/greenwave.png'
-import vk from '../images/vk.png'
+import greenwave from '../public/images/greenwave.png'
+import vk from '../public/images/vk.png'
 
 export default function Footer() {
   return (
