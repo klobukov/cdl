@@ -10,9 +10,9 @@
     "react-dom": "18"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "s": "next dev",
+    "build_prod": "next build",
+    "start_prod": "next start",
     "lint_check": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint_fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "pretty_check": "prettier --check .",

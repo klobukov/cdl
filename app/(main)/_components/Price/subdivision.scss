@@ -1,4 +1,4 @@
-@import '../../../../styles/variables';
+@use '../../../../styles/variables' as *;
 
 .subdivision__analyzes {
   padding-left: $little-margin;

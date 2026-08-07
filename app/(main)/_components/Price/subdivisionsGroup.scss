@@ -1,4 +1,4 @@
-@import '../../../../styles/variables';
+@use '../../../../styles/variables' as *;
 
 .subdivisionsGroup {
   border: 1px solid $light-color;
