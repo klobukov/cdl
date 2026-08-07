@@ -12,16 +12,28 @@
   height: 100%;
 }
 
-.header__info span {
-  font-weight: bold;
-}
-
 .header__info img {
   width: 100%;
 }
 
 .header__info p {
   font-size: $big-font;
+}
+
+.header__contacts p {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+}
+
+.header__contacts span {
+  display: block;
+}
+
+.header__contacts .office-address {
+  font-weight: bold;
+  margin-top: 8px;
 }
 
 .header__slideShow {
@@ -40,13 +52,6 @@
   color: $attention-color;
   font-size: $extreme-font;
   text-align: center;
-}
-
-.header__covid_container {
-  width: 50%;
-  img {
-    width: 100%;
-  }
 }
 
 .embla {
