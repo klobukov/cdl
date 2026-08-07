@@ -7,7 +7,7 @@ import React, {
   useEffect,
   useRef,
 } from 'react'
-import { baseURL } from '../../../constants/baseURL'
+import { baseURL } from '../../../../../constants/baseURL'
 import './search.scss'
 
 export default function Search(): JSX.Element {

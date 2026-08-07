@@ -1,10 +1,10 @@
 'use client'
 import React, { JSX, useEffect, useState } from 'react'
-import { baseURL } from '../../constants/baseURL'
+import { baseURL } from '../../../../constants/baseURL'
 import AnalysisSubdivision from './AnalysisSubdivision'
 import './subdivisionsGroup.scss'
 
-export default function AnalysisSubdivisionsGroup() {
+export default function Price() {
   const [subdivisions, setSubdivisions] = useState<string[] | string | null>(
     null,
   )

@@ -1,5 +1,5 @@
 import React, { JSX, useEffect, useState } from 'react'
-import { baseURL } from '../../constants/baseURL'
+import { baseURL } from '../../../../constants/baseURL'
 import './subdivision.scss'
 
 export default function AnalysisSubdivision({ name }: { name: string }) {

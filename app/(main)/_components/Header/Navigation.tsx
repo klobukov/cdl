@@ -1,8 +1,5 @@
 import React, { JSX } from 'react'
-import '../Styles/navigation.scss'
-/*import Price from '../app/_components/Price'
-import Contacts from '.././pages/Contacts'
-import Politics from '.././pages/Politics'*/
+import './navigation.scss'
 
 export default function Navigation(): JSX.Element {
   return <div>navigation</div>

@@ -1,8 +1,8 @@
 import React from 'react'
-import allOffices, { IOffice } from '.././constants/allOffices'
-import '../Styles/allOfficesInfo.scss'
+import allOffices, { IOffice } from '../../../constants/allOffices'
+import '../../../Styles/allOfficesInfo.scss'
 
-export default function AllOfficesInfo() {
+export default function Contacts() {
   return <div className="allOfficesInfo">{getInfo(allOffices)}</div>
 
   function getInfo(arr: IOffice[]) {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function RootLayout({
+export default function NotFoundLayout({
   children,
 }: {
   children: React.ReactNode
