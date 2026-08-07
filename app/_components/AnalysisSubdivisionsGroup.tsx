@@ -1,8 +1,8 @@
+'use client'
 import React, { JSX, useEffect, useState } from 'react'
-import axios from 'axios'
-import { baseURL } from '../baseURL'
+import { baseURL } from '../../constants/baseURL'
 import AnalysisSubdivision from './AnalysisSubdivision'
-import '../Styles/subdivisionsGroup.scss'
+import './subdivisionsGroup.scss'
 
 export default function AnalysisSubdivisionsGroup() {
   const [subdivisions, setSubdivisions] = useState<string[] | string | null>(
@@ -12,7 +12,7 @@ export default function AnalysisSubdivisionsGroup() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
+        const res = await fetch(
           baseURL + 'backend/analysisSubdivisionsGroup.php',
         )
         const { data } = res

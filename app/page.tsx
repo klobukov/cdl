@@ -1,3 +1,6 @@
-export default function HomePage() {
-  return <h1>Next.js работает!</h1>
+import Price from "./_components/Price"
+import {JSX} from "react";
+
+export default function Page() :JSX.Element {
+    return <Price />
 }

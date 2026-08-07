@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import allOffices, { IOffice } from '../allOffices'
+import allOffices, { IOffice } from '.././constants/allOffices'
 import '../Styles/footer.scss'
 import greenwave from '../images/greenwave.png'
 import vk from '../images/vk.png'

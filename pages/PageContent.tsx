@@ -1,8 +1,8 @@
 import React, { Fragment, ReactNode } from 'react'
-import Header from '../Header'
-import Navigation from '../Navigation'
-import Footer from '../Footer'
-import ArrowUp from '../ArrowUp'
+import Header from '../components/Header'
+import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
+import ArrowUp from '../components/ArrowUp'
 
 export default function PageContent(children: ReactNode) {
   return (

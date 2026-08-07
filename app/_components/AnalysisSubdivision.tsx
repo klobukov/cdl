@@ -1,7 +1,6 @@
 import React, { JSX, useEffect, useState } from 'react'
-import axios from 'axios'
-import { baseURL } from '../baseURL'
-import '../Styles/subdivision.scss'
+import { baseURL } from '../../constants/baseURL'
+import './subdivision.scss'
 
 export default function AnalysisSubdivision({ name }: { name: string }) {
   const [show, setShow] = useState<boolean>(false)
@@ -11,10 +10,9 @@ export default function AnalysisSubdivision({ name }: { name: string }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          baseURL + 'backend/analysisSubdivision.php',
-          { params: { name } },
-        )
+          const url = `${baseURL}backend/analysisSubdivision.php?name=${encodeURIComponent(name)}`
+      let res = await fetch(url)
+          res = await res.json()
         setData(res.data)
       } catch {
         setData(error)

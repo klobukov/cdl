@@ -1,12 +1,11 @@
 import React, { JSX } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 import '../Styles/navigation.scss'
-import Price from './Pages/Price'
-import Contacts from './Pages/Contacts'
-import Politics from './Pages/Politics'
-import IPage from './Pages/IPage'
+import Price from '../app/_components/Price'
+import Contacts from '.././pages/Contacts'
+import Politics from '.././pages/Politics'
 
 export default function Navigation(): JSX.Element {
+  return <div>navigation</div>
   const baseClassName = 'navigation__tab'
   const activeClassName = baseClassName + ' navigation__active'
   const pagesArr = [Price, Contacts, Politics]

@@ -1,3 +1,4 @@
+'use client'
 import React, {
   JSX,
   useState,
@@ -6,9 +7,8 @@ import React, {
   useEffect,
   useRef,
 } from 'react'
-import axios from 'axios'
-import { baseURL } from '../baseURL'
-import '../Styles/search.scss'
+import { baseURL } from '../../../constants/baseURL'
+import './search.scss'
 
 export default function Search(): JSX.Element {
   const [inputVal, setInputVal] = useState('')
@@ -60,9 +60,8 @@ export default function Search(): JSX.Element {
 
   async function fastSearch(searchValue: string): Promise<void> {
     try {
-      const res = await axios.get(baseURL + 'backend/fastSearch.php', {
-        params: { search: searchValue },
-      })
+      let res = await fetch(`${baseURL}backend/fastSearch.php?search=${encodeURIComponent(searchValue)}`)
+      res = await res.json()
       setfastResults(res.data)
     } catch {
       setfastResults(null)

@@ -1,5 +1,6 @@
+"use client"
 import React from 'react'
-import { mainOffice, mk1 } from '../allOffices'
+import { mainOffice, mk1 } from '.././constants/allOffices'
 import ReactSwipe from 'react-swipe'
 import '../Styles/header.scss'
 import logo from '../images/logo.jpg'

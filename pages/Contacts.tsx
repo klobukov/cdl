@@ -1,6 +1,6 @@
 import React from 'react'
 import IPage from './IPage'
-import AllOfficesInfo from '../AllOfficesInfo'
+import AllOfficesInfo from '../components/AllOfficesInfo'
 
 const Contacts: IPage = {
   name: 'Контакты',

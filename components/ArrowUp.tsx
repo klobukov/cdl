@@ -1,3 +1,4 @@
+'use client'
 import React, { JSX, useEffect, useState } from 'react'
 import '../Styles/arrowUp.scss'
 

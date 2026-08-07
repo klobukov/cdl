@@ -1,5 +1,5 @@
 import React from 'react'
-import allOffices, { IOffice } from '../allOffices'
+import allOffices, { IOffice } from '.././constants/allOffices'
 import '../Styles/allOfficesInfo.scss'
 
 export default function AllOfficesInfo() {

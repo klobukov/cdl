@@ -23,6 +23,7 @@
       }
     ]
   },
-  "include": ["src_old", ".next/types/**/*.ts", ".next/dev/types/**/*.ts"],
+  "include": [
+    "constants", ".next/types/**/*.ts", ".next/dev/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
