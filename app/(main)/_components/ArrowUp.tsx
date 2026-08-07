@@ -1,6 +1,6 @@
 'use client'
 import React, { JSX, useEffect, useState } from 'react'
-import '../../../Styles/arrowUp.scss'
+import './arrowUp.scss'
 
 export default function ArrowUp(): JSX.Element | null {
   const [show, setShow] = useState(false)

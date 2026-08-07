@@ -1,6 +1,6 @@
 import React from 'react'
 import allOffices, { IOffice } from '../../../constants/allOffices'
-import '../../../Styles/allOfficesInfo.scss'
+import './allOfficesInfo.scss'
 
 export default function Contacts() {
   return <div className="allOfficesInfo">{getInfo(allOffices)}</div>
