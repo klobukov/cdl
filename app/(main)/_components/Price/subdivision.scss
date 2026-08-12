@@ -6,7 +6,7 @@
 
 .subdivision__analyzes div {
   display: flex;
-  padding-top: $little-margin/2;
+  padding-top: calc($little-margin/2);
   div {
     width: 25%;
     font-size: $big-font;
@@ -23,7 +23,7 @@
 .subdivision__name {
   cursor: pointer;
   font-size: $extreme-font;
-  padding: $little-margin * 2;
+  padding: calc($little-margin * 2);
 }
 
 .subdivision__name:hover {
