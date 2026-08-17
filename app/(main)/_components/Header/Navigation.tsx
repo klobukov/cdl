@@ -1,29 +1,32 @@
 import React, { JSX } from 'react'
 import './navigation.scss'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+const navPages = [
+  ['/', 'Анализы и цены'],
+  ['/contacts', 'Контакты'],
+  ['/politics', 'Политика обработки персональных данных'],
+]
 
 export default function Navigation(): JSX.Element {
-  return <div>navigation</div>
-  /*
   const baseClassName = 'navigation__tab'
   const activeClassName = baseClassName + ' navigation__active'
-  const pagesArr = [Price, Contacts, Politics]
-  const location = useLocation()
+  const pathName = usePathname()
 
-  function getLinks(arr: IPage[]) {
-    return arr.map((item) => {
-      return (
-        <Link
-          key={item.url}
-          to={item.url}
-          className={
-            location.pathname === item.url ? activeClassName : baseClassName
-          }
-        >
-          {item.name}
-        </Link>
-      )
-    })
-  }
-
-  return <nav className="navigation">{getLinks(pagesArr)}</nav> */
+  return (
+    <nav className="navigation">
+      {navPages.map(([path, title]) => {
+        return (
+          <Link
+            key={path}
+            href={path}
+            className={path === pathName ? activeClassName : baseClassName}
+          >
+            {title}
+          </Link>
+        )
+      })}
+    </nav>
+  )
 }
