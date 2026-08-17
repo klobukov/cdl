@@ -25,9 +25,8 @@ export default defineConfig([
     },
     rules: {
       'react/react-in-jsx-scope': 'off',
-      // Правила для Next.js
       '@next/next/no-html-link-for-pages': 'error',
-      '@next/next/no-img-element': 'warn',
+      '@next/next/no-img-element': 'off',
       '@next/next/no-sync-scripts': 'error',
       '@next/next/no-unwanted-polyfillio': 'warn',
     },

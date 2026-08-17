@@ -1,8 +1,6 @@
 import React, { ReactElement } from 'react'
 import allOffices, { IOffice } from '../../../constants/allOffices'
 import './footer.scss'
-import greenwave from '../../../public/images/greenwave.png'
-import vk from '../../../public/images/vk.png'
 
 export default function Footer() {
   return (
@@ -16,7 +14,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={greenwave} alt="greenwave" title="greenwave" />
+              <img src={'/images/greenwave.png'} alt="greenwave" title="greenwave" />
             </a>
           </p>
           <p>Загородная балка,4</p>
@@ -46,7 +44,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={vk} alt="vk" title="vk" />
+            <img src={'/images/vk.png'} alt="vk" title="vk" />
           </a>
         </p>
       </div>
