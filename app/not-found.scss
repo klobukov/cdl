@@ -1,0 +1,6 @@
+@use '../styles/variables' as *;
+
+.page404 a {
+  font-size: $extreme-font;
+  text-decoration: none;
+}

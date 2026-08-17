@@ -1,0 +1,34 @@
+@use '../../../styles/variables' as *;
+
+.footer {
+  margin-top: $big-margin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: $light-color;
+}
+
+.footer__partners,
+.footer__contacts,
+.footer__socials {
+  width: 30%;
+  margin: $little-margin;
+}
+
+.footer__contacts div p:first-child {
+  font-weight: 600;
+}
+
+.footer__socials img,
+.footer__partners img {
+  width: 75%;
+}
+
+@media (max-width: 576px) {
+  .footer__partners,
+  .footer__contacts,
+  .footer__socials {
+    width: 100%;
+    border-bottom: 1px solid $weak-color;
+  }
+}

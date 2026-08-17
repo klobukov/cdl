@@ -2,6 +2,7 @@ import js from '@eslint/js'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 import pluginReact from 'eslint-plugin-react'
+import pluginNext from '@next/eslint-plugin-next'
 import { defineConfig } from 'eslint/config'
 
 export default defineConfig([
@@ -14,6 +15,9 @@ export default defineConfig([
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
+    plugins: {
+      '@next/next': pluginNext,
+    },
     settings: {
       react: {
         version: '18',
@@ -21,6 +25,13 @@ export default defineConfig([
     },
     rules: {
       'react/react-in-jsx-scope': 'off',
+      '@next/next/no-html-link-for-pages': 'error',
+      '@next/next/no-img-element': 'off',
+      '@next/next/no-sync-scripts': 'error',
+      '@next/next/no-unwanted-polyfillio': 'warn',
     },
+  },
+  {
+    ignores: ['.next/', 'next-env.d.ts'],
   },
 ])

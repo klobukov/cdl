@@ -1,0 +1,22 @@
+@use 'variables';
+
+#root {
+  max-width: 1366px;
+  margin: $big-margin auto 0 auto;
+  font-size: $main-font-size;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+  color: $main-font-color;
+}
+
+@media (max-width: 576px) {
+  #root {
+    font-size: $mobile-font-size;
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width: 330px) {
+  #root {
+    font-size: $tamagochi-font-size;
+  }
+}

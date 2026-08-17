@@ -1,0 +1,28 @@
+@use '../../../../styles/variables' as *;
+
+.subdivisionsGroup {
+  border: 1px solid $light-color;
+  margin-top: $big-margin;
+  padding: $little-margin;
+}
+
+.subdivisionsGroup h1 {
+  text-align: center;
+  color: $extra-color;
+}
+
+.subdivisionsGroup__header {
+  display: flex;
+  div {
+    width: 25%;
+    font-size: $extreme-font;
+  }
+  div:first-child {
+    width: 47%;
+  }
+}
+
+.subdivisionsGroup__tree {
+  border-top: 1px solid $weak-color;
+  margin-top: $little-margin;
+}
