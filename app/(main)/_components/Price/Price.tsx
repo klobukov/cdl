@@ -1,8 +1,8 @@
 'use client'
 import React, { JSX, useEffect, useState } from 'react'
-import { baseURL } from '../../../../constants/baseURL'
 import AnalysisSubdivision from './AnalysisSubdivision'
 import './subdivisionsGroup.scss'
+import {isDev} from "../../../../constants/common";
 
 export default function Price() {
   const [subdivisions, setSubdivisions] = useState<string[] | string | null>(
@@ -12,15 +12,14 @@ export default function Price() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          baseURL + 'backend/analysisSubdivisionsGroup.php',
-        )
-        const { data } = res
+        const res = await fetch('/api/analysis-subdivisions')
+        const data = await res.json()
         const sorted = data
           .filter((item: string) => item !== 'Дополнительные услуги')
           .concat('Дополнительные услуги')
         setSubdivisions(sorted)
-      } catch {
+      } catch(err) {
+        if (isDev) console.error(err)
         setSubdivisions('Ошибка подключения к базе данных..:(')
       }
     }
