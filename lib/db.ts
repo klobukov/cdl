@@ -9,7 +9,13 @@ const pool = mysql.createPool({
   connectionLimit: 10,
 })
 
-export async function query({ query, values = [] }: { query: string; values?: any[] }) {
+export async function query({
+  query,
+  values = [],
+}: {
+  query: string
+  values?: any[]
+}) {
   const connection = await pool.getConnection()
   try {
     const [results] = await connection.execute(query, values || [])

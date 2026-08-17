@@ -2,7 +2,7 @@
 import React, { JSX, useEffect, useState } from 'react'
 import AnalysisSubdivision from './AnalysisSubdivision'
 import './subdivisionsGroup.scss'
-import {isDev} from "../../../../constants/common";
+import { isDev } from '../../../../constants/common'
 
 export default function Price() {
   const [subdivisions, setSubdivisions] = useState<string[] | string | null>(
@@ -18,7 +18,7 @@ export default function Price() {
           .filter((item: string) => item !== 'Дополнительные услуги')
           .concat('Дополнительные услуги')
         setSubdivisions(sorted)
-      } catch(err) {
+      } catch (err) {
         if (isDev) console.error(err)
         setSubdivisions('Ошибка подключения к базе данных..:(')
       }

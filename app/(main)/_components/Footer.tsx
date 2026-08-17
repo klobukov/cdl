@@ -14,7 +14,11 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={'/images/greenwave.png'} alt="greenwave" title="greenwave" />
+              <img
+                src={'/images/greenwave.png'}
+                alt="greenwave"
+                title="greenwave"
+              />
             </a>
           </p>
           <p>Загородная балка,4</p>
