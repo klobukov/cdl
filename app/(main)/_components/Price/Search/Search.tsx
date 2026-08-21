@@ -9,13 +9,14 @@ import React, {
 } from 'react'
 import './search.scss'
 
+const errorMessage = 'Ошибка подключения к базе данных..:('
+
 export default function Search(): JSX.Element {
   const [inputVal, setInputVal] = useState('')
   const [searchResults, setSearchResults] = useState<string[] | string | null>(
     null,
   )
   const [fastResults, setfastResults] = useState<string[] | null>(null)
-  const errorMessage = 'Ошибка подключения к базе данных..:('
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
@@ -110,57 +111,42 @@ export default function Search(): JSX.Element {
   }
 
   function SearchResults(data: string[] | string): JSX.Element {
-    if (data.length === 0) {
-      return (
-        <div className="search__results">
-          <div className="search__results-header">
-            <HeaderMessage />
-            <CloseButton />
-          </div>
-          <h3>К сожалению, по Вашему запросу ничего не найдено</h3>
-        </div>
-      )
-    }
-
     if (data === errorMessage) return <div>{errorMessage}</div>
 
     return (
       <div className="search__results">
         <div className="search__results-header">
-          <HeaderMessage />
-          <CloseButton />
+          <div>Результаты поиска: </div>
+          <button onClick={() => setSearchResults(null)}>Закрыть</button>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Название исследования</th>
-              <th>Срок выполнения (суток)</th>
-              <th>Цена (руб.)</th>
-              <th>Код номенклатуры</th>
-            </tr>
-          </thead>
-          <tbody>
-            {typeof data !== 'string' &&
-              data.map((item: string, index: number) => {
-                return (
-                  <tr key={index}>
-                    <td>{item[0]}</td>
-                    <td>{item[1]}</td>
-                    <td>{item[2]}</td>
-                    <td>{item[3]}</td>
-                  </tr>
-                )
-              })}
-          </tbody>
-        </table>
+        {data.length ? (
+          <table>
+            <thead>
+              <tr>
+                <th>Название исследования</th>
+                <th>Срок выполнения (суток)</th>
+                <th>Цена (руб.)</th>
+                <th>Код номенклатуры</th>
+              </tr>
+            </thead>
+            <tbody>
+              {typeof data !== 'string' &&
+                data.map((item: string, index: number) => {
+                  return (
+                    <tr key={index}>
+                      <td>{item[0]}</td>
+                      <td>{item[1]}</td>
+                      <td>{item[2]}</td>
+                      <td>{item[3]}</td>
+                    </tr>
+                  )
+                })}
+            </tbody>
+          </table>
+        ) : (
+          <h3>К сожалению, по Вашему запросу ничего не найдено</h3>
+        )}
       </div>
     )
-  }
-
-  function CloseButton(): JSX.Element {
-    return <button onClick={() => setSearchResults(null)}>Закрыть</button>
-  }
-  function HeaderMessage(): JSX.Element {
-    return <div>Результаты поиска: </div>
   }
 }
