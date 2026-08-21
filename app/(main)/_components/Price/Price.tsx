@@ -3,7 +3,7 @@ import React, { JSX, useEffect, useState } from 'react'
 import AnalysisSubdivision from './AnalysisSubdivision'
 import './subdivisionsGroup.scss'
 import { isDev } from '../../../../constants/common'
-import Search from "./Search/Search";
+import Search from './Search/Search'
 
 export default function Price() {
   const [subdivisions, setSubdivisions] = useState<string[] | string | null>(
@@ -31,18 +31,18 @@ export default function Price() {
   return (
     <div>
       <Search />
-    <div className="subdivisionsGroup">
-      <h1>Список всех анализов</h1>
-      <div className="subdivisionsGroup__header">
-        <div>Название исследования</div>
-        <div>Срок выполнения (суток)</div>
-        <div>Цена (руб.) </div>
-        <div>Код номенклатуры</div>
+      <div className="subdivisionsGroup">
+        <h1>Список всех анализов</h1>
+        <div className="subdivisionsGroup__header">
+          <div>Название исследования</div>
+          <div>Срок выполнения (суток)</div>
+          <div>Цена (руб.) </div>
+          <div>Код номенклатуры</div>
+        </div>
+        <div className="subdivisionsGroup__tree">
+          <Subdivisions />
+        </div>
       </div>
-      <div className="subdivisionsGroup__tree">
-        <Subdivisions />
-      </div>
-    </div>
     </div>
   )
 

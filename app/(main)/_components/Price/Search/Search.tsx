@@ -97,8 +97,10 @@ export default function Search(): JSX.Element {
     if (val === '') return
 
     try {
-      const res = 1
-      setSearchResults(res.data)
+      const params = new URLSearchParams({ search: val })
+      const res = await fetch(`/api/search?${params}`)
+      const data = await res.json()
+      setSearchResults(data)
     } catch {
       setSearchResults(errorMessage)
     } finally {

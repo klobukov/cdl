@@ -9,7 +9,7 @@ export async function GET(request: Request) {
   if (!search) {
     return NextResponse.json(
       { error: 'Search param is required' },
-      { status: 400 }
+      { status: 400 },
     )
   }
 
