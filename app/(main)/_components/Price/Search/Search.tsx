@@ -9,14 +9,13 @@ import React, {
 } from 'react'
 import './search.scss'
 import useFastSearch from './useFastSearch'
+import useSearch from './useSearch'
 
 const errorMessage = 'Ошибка подключения к базе данных..:('
 
 export default function Search(): JSX.Element {
   const [inputVal, setInputVal] = useState('')
-  const [searchResults, setSearchResults] = useState<string[] | string | null>(
-    null,
-  )
+  const { searchResults, setSearchResults, search } = useSearch()
   const { fastResults, setFastResults, fastSearch } = useFastSearch()
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -44,7 +43,7 @@ export default function Search(): JSX.Element {
           autoComplete="off"
           onChange={(e) => onInputChange(e)}
         />
-        <button onClick={(e) => search(e)}>Поиск</button>
+        <button onClick={(e) => handleSearch(e)}>Поиск</button>
       </form>
       {fastResults && FastResults(fastResults)}
       {searchResults && SearchResults(searchResults)}
@@ -68,7 +67,7 @@ export default function Search(): JSX.Element {
           return (
             <li
               key={index}
-              onClick={(e) => search(e, item)}
+              onClick={(e) => handleSearch(e, item)}
               className="search__fast__elem"
             >
               {item}
@@ -79,7 +78,7 @@ export default function Search(): JSX.Element {
     )
   }
 
-  async function search(
+  async function handleSearch(
     e: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLLIElement>,
     item?: string,
   ): Promise<void> {
@@ -87,17 +86,9 @@ export default function Search(): JSX.Element {
     const val = (item || inputVal).trim()
     if (val === '') return
 
-    try {
-      const params = new URLSearchParams({ search: val })
-      const res = await fetch(`/api/search?${params}`)
-      const data = await res.json()
-      setSearchResults(data)
-    } catch {
-      setSearchResults(errorMessage)
-    } finally {
-      setInputVal('')
-      setFastResults(null)
-    }
+    await search(val)
+    setInputVal('')
+    setFastResults(null)
   }
 
   function SearchResults(data: string[] | string): JSX.Element {

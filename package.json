@@ -17,7 +17,7 @@
     "lint_check": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint_fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "pretty_check": "prettier --check .",
-    "pretty_fix": "prettier --write ."
+    "pretty": "prettier --write ."
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
