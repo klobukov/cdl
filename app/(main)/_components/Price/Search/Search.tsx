@@ -1,15 +1,9 @@
 'use client'
-import React, {
-  JSX,
-  useState,
-  ChangeEvent,
-  MouseEvent,
-  useEffect,
-  useRef,
-} from 'react'
+import React, { JSX, useState, ChangeEvent, MouseEvent, useRef } from 'react'
 import './search.scss'
 import useFastSearch from './useFastSearch'
 import useSearch from './useSearch'
+import useClickOutside from './useClickOutside'
 
 const errorMessage = 'Ошибка подключения к базе данных..:('
 
@@ -19,19 +13,7 @@ export default function Search(): JSX.Element {
   const { fastResults, setFastResults, fastSearch } = useFastSearch()
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
-  useEffect(() => {
-    const removeFastResults = (e: Event): void => {
-      const target = e.target as HTMLElement
-      if (target.classList.contains('search__fast__elem')) return
-      setFastResults(null)
-    }
-
-    document.body.addEventListener('click', removeFastResults)
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current)
-      document.body.removeEventListener('click', removeFastResults)
-    }
-  }, [])
+  useClickOutside('search__fast__elem', clearFastResults)
 
   return (
     <div className="search">
@@ -49,14 +31,6 @@ export default function Search(): JSX.Element {
       {searchResults && SearchResults(searchResults)}
     </div>
   )
-
-  function onInputChange(e: ChangeEvent<HTMLInputElement>): void {
-    if (timerRef.current) clearTimeout(timerRef.current)
-    const value = e.target.value
-    setInputVal(value)
-    if (value.trim() === '') return
-    timerRef.current = setTimeout(() => fastSearch(value), 500)
-  }
 
   function FastResults(data: string[]): JSX.Element | null {
     if (data.length === 0) return null
@@ -76,19 +50,6 @@ export default function Search(): JSX.Element {
         })}
       </ul>
     )
-  }
-
-  async function handleSearch(
-    e: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLLIElement>,
-    item?: string,
-  ): Promise<void> {
-    e.preventDefault()
-    const val = (item || inputVal).trim()
-    if (val === '') return
-
-    await search(val)
-    setInputVal('')
-    setFastResults(null)
   }
 
   function SearchResults(data: string[] | string): JSX.Element {
@@ -129,5 +90,30 @@ export default function Search(): JSX.Element {
         )}
       </div>
     )
+  }
+
+  function onInputChange(e: ChangeEvent<HTMLInputElement>): void {
+    if (timerRef.current) clearTimeout(timerRef.current)
+    const value = e.target.value
+    setInputVal(value)
+    if (value.trim() === '') return
+    timerRef.current = setTimeout(() => fastSearch(value), 500)
+  }
+
+  async function handleSearch(
+    e: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLLIElement>,
+    item?: string,
+  ): Promise<void> {
+    e.preventDefault()
+    const val = (item || inputVal).trim()
+    if (val === '') return
+
+    await search(val)
+    setInputVal('')
+    setFastResults(null)
+  }
+
+  function clearFastResults() {
+    setFastResults(null)
   }
 }
