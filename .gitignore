@@ -2,3 +2,7 @@ node_modules/
 /.project
 build*
 .idea/*
+.next/*
+.env.local
+.env.production
+next-env.d.ts
