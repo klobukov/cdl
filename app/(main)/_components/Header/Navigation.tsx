@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 const navPages = [
   ['/', 'Анализы и цены'],
   ['/contacts', 'Контакты'],
-  ['/politics', 'Политика обработки персональных данных'],
+  ['/documents', 'Документы'],
 ]
 
 export default function Navigation(): JSX.Element {
