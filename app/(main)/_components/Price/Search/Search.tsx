@@ -8,6 +8,7 @@ import React, {
   useRef,
 } from 'react'
 import './search.scss'
+import useFastSearch from "./useFastSearch";
 
 const errorMessage = 'Ошибка подключения к базе данных..:('
 
@@ -16,14 +17,14 @@ export default function Search(): JSX.Element {
   const [searchResults, setSearchResults] = useState<string[] | string | null>(
     null,
   )
-  const [fastResults, setfastResults] = useState<string[] | null>(null)
+  const { fastResults, setFastResults, fastSearch } = useFastSearch()
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     const removeFastResults = (e: Event): void => {
       const target = e.target as HTMLElement
       if (target.classList.contains('search__fast__elem')) return
-      setfastResults(null)
+      setFastResults(null)
     }
 
     document.body.addEventListener('click', removeFastResults)
@@ -56,17 +57,6 @@ export default function Search(): JSX.Element {
     setInputVal(value)
     if (value.trim() === '') return
     timerRef.current = setTimeout(() => fastSearch(value), 500)
-  }
-
-  async function fastSearch(searchValue: string): Promise<void> {
-    try {
-      const params = new URLSearchParams({ search: searchValue })
-      const res = await fetch(`/api/fast-search?${params}`)
-      const data = await res.json()
-      setfastResults(data)
-    } catch {
-      setfastResults(null)
-    }
   }
 
   function FastResults(data: string[]): JSX.Element | null {
@@ -106,7 +96,7 @@ export default function Search(): JSX.Element {
       setSearchResults(errorMessage)
     } finally {
       setInputVal('')
-      setfastResults(null)
+      setFastResults(null)
     }
   }
 
