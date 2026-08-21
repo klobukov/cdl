@@ -7,7 +7,6 @@ import React, {
   useEffect,
   useRef,
 } from 'react'
-import { baseURL } from '../../../../../constants/baseURL'
 import './search.scss'
 
 export default function Search(): JSX.Element {
@@ -60,11 +59,10 @@ export default function Search(): JSX.Element {
 
   async function fastSearch(searchValue: string): Promise<void> {
     try {
-      let res = await fetch(
-        `${baseURL}backend/fastSearch.php?search=${encodeURIComponent(searchValue)}`,
-      )
-      res = await res.json()
-      setfastResults(res.data)
+      const params = new URLSearchParams({ search: searchValue })
+      const res = await fetch(`/api/fast-search?${params}`)
+      const data = await res.json()
+      setfastResults(data)
     } catch {
       setfastResults(null)
     }
@@ -99,9 +97,7 @@ export default function Search(): JSX.Element {
     if (val === '') return
 
     try {
-      const res = await axios.get(baseURL + 'backend/search.php', {
-        params: { search: val },
-      })
+      const res = 1
       setSearchResults(res.data)
     } catch {
       setSearchResults(errorMessage)
