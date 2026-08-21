@@ -8,7 +8,7 @@ import React, {
   useRef,
 } from 'react'
 import './search.scss'
-import useFastSearch from "./useFastSearch";
+import useFastSearch from './useFastSearch'
 
 const errorMessage = 'Ошибка подключения к базе данных..:('
 
