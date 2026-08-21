@@ -3,13 +3,13 @@ import { Link, useLocation } from 'react-router-dom'
 import '../Styles/navigation.scss'
 import Price from './Pages/Price'
 import Contacts from './Pages/Contacts'
-import Politics from './Pages/Politics'
+import Documents from './Pages/Documents'
 import IPage from './Pages/IPage'
 
 export default function Navigation(): JSX.Element {
   const baseClassName = 'navigation__tab'
   const activeClassName = baseClassName + ' navigation__active'
-  const pagesArr = [Price, Contacts, Politics]
+  const pagesArr = [Price, Contacts, Documents]
   const location = useLocation()
 
   function getLinks(arr: IPage[]) {

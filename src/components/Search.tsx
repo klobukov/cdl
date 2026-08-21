@@ -7,7 +7,7 @@ import React, {
   useRef,
 } from 'react'
 import axios from 'axios'
-import { baseURL } from '../baseURL'
+import { baseURL } from '../constants'
 import '../Styles/search.scss'
 
 export default function Search(): JSX.Element {

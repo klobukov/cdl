@@ -1,6 +1,6 @@
 import React, { JSX, useEffect, useState } from 'react'
 import axios from 'axios'
-import { baseURL } from '../baseURL'
+import { baseURL } from '../constants'
 import AnalysisSubdivision from './AnalysisSubdivision'
 import '../Styles/subdivisionsGroup.scss'
 

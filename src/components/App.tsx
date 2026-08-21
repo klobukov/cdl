@@ -3,12 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Contacts from './Pages/Contacts'
 import Price from './Pages/Price'
 import Page404 from './Pages/Page404'
-import Politics from './Pages/Politics'
+import Documents from './Pages/Documents'
 import IPage from './Pages/IPage'
 import PageContent from './Pages/PageContent'
 
 export default function App() {
-  const routes = [Contacts, Price, Politics, Page404]
+  const routes = [Contacts, Price, Documents, Page404]
   return (
     <BrowserRouter>
       <Routes>{routes.map((route) => makeRoute(route))}</Routes>
