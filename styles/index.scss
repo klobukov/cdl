@@ -1,6 +1,6 @@
-@use 'variables';
+@use './variables' as *;
 
-#root {
+body {
   max-width: 1366px;
   margin: $big-margin auto 0 auto;
   font-size: $main-font-size;
@@ -9,14 +9,14 @@
 }
 
 @media (max-width: 576px) {
-  #root {
+  body {
     font-size: $mobile-font-size;
     word-wrap: break-word;
   }
 }
 
 @media (max-width: 330px) {
-  #root {
+  body {
     font-size: $tamagochi-font-size;
   }
 }
