@@ -1,4 +1,3 @@
-- фетч чтоб вызывался только в апи файле
 - почему не ругается тс на функции без типов например в хедере?
   yarn eslint too much errors wtf
 - запустить прод, проверить что const res = await fetch('/api/analysis-subdivisions')

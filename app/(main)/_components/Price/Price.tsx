@@ -4,6 +4,7 @@ import AnalysisSubdivision from './AnalysisSubdivision'
 import './subdivisionsGroup.scss'
 import { isDev } from '../../../../constants/common'
 import Search from './Search/Search'
+import {get} from "@/lib/api"
 
 export default function Price() {
   const [subdivisions, setSubdivisions] = useState<string[] | string | null>(
@@ -13,8 +14,7 @@ export default function Price() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/analysis-subdivisions')
-        const data = await res.json()
+        const data = await get('/api/analysis-subdivisions')
         const sorted = data
           .filter((item: string) => item !== 'Дополнительные услуги')
           .concat('Дополнительные услуги')

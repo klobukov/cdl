@@ -12,7 +12,7 @@ export default function useSearch() {
     if (val === '') return
 
     try {
-      const data = await get<string[]>('/api/search', { search: val })
+      const data = await get('/api/search', { search: val })
       setSearchResults(data)
     } catch {
       setSearchResults('Ошибка подключения к базе данных..:(')
