@@ -1,7 +1,7 @@
 import React, { JSX, useEffect, useState } from 'react'
 import './subdivision.scss'
-import { isDev } from '../../../../constants/common'
-import {get} from "@/lib/api"
+import { dbErrorMessage, isDev } from '../../../../constants/common'
+import { get } from '@/lib/api'
 
 export default function AnalysisSubdivision({ name }: { name: string }) {
   const [show, setShow] = useState<boolean>(false)
@@ -31,11 +31,11 @@ function AnalysisList({
     if (!show || data) return
     const fetchData = async () => {
       try {
-        const data = await get('/api/subdivision-items', {name})
+        const data = await get<string[][]>('/api/subdivision-items', { name })
         setData(data)
       } catch (err) {
         if (isDev) console.error(err)
-        setData('error')
+        setData(dbErrorMessage)
       }
     }
     fetchData()
@@ -43,7 +43,7 @@ function AnalysisList({
 
   if (!show) return null
   if (!data) return null
-  if (data === 'error') return <div>Ошибка подключения к базе данных..:(</div>
+  if (typeof data === 'string') return <div>{data}</div>
 
   return data.map((item: string[], index: number) => (
     <div key={index}>

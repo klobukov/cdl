@@ -2,9 +2,9 @@
 import React, { JSX, useEffect, useState } from 'react'
 import AnalysisSubdivision from './AnalysisSubdivision'
 import './subdivisionsGroup.scss'
-import { isDev } from '../../../../constants/common'
+import { dbErrorMessage, isDev } from '../../../../constants/common'
 import Search from './Search/Search'
-import {get} from "@/lib/api"
+import { get } from '@/lib/api'
 
 export default function Price() {
   const [subdivisions, setSubdivisions] = useState<string[] | string | null>(
@@ -14,14 +14,14 @@ export default function Price() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await get('/api/analysis-subdivisions')
+        const data = await get<string[]>('/api/analysis-subdivisions')
         const sorted = data
           .filter((item: string) => item !== 'Дополнительные услуги')
           .concat('Дополнительные услуги')
         setSubdivisions(sorted)
       } catch (err) {
         if (isDev) console.error(err)
-        setSubdivisions('Ошибка подключения к базе данных..:(')
+        setSubdivisions(dbErrorMessage)
       }
     }
 

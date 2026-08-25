@@ -1,8 +1,9 @@
 // app/api/fast-search/route.ts
 import { NextResponse } from 'next/server'
 import { query } from '@/lib/db'
+import { Row } from '@/lib/types'
 
-export async function GET(request: Request) {
+export async function GET(request: Request): Promise<NextResponse> {
   const { searchParams } = new URL(request.url)
   const search = searchParams.get('search')
 
@@ -24,7 +25,7 @@ export async function GET(request: Request) {
     values: [search],
   })
 
-  const titles = result.map((row: any) => row.title)
+  const titles = (result as Row[]).map((row) => row.title as string)
 
   return NextResponse.json(titles)
 }

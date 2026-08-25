@@ -1,4 +1,5 @@
 import mysql from 'mysql2/promise'
+import { Row } from './types'
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
@@ -14,12 +15,12 @@ export async function query({
   values = [],
 }: {
   query: string
-  values?: any[]
-}) {
+  values?: (string | number | null)[]
+}): Promise<Row[]> {
   const connection = await pool.getConnection()
   try {
     const [results] = await connection.execute(query, values || [])
-    return results
+    return results as Row[]
   } finally {
     connection.release()
   }

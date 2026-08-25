@@ -6,7 +6,9 @@ export default function useFastSearch() {
 
   async function fastSearch(searchValue: string): Promise<void> {
     try {
-      const data = await get('/api/fast-search', { search: searchValue })
+      const data = await get<string[]>('/api/fast-search', {
+        search: searchValue,
+      })
       setFastResults(data)
     } catch {
       setFastResults(null)

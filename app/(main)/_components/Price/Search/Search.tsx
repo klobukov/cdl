@@ -5,8 +5,6 @@ import useFastSearch from './useFastSearch'
 import useSearch from './useSearch'
 import useClickOutside from './useClickOutside'
 
-const errorMessage = 'Ошибка подключения к базе данных..:('
-
 export default function Search(): JSX.Element {
   const [inputVal, setInputVal] = useState('')
   const { searchResults, setSearchResults, search } = useSearch()
@@ -52,8 +50,8 @@ export default function Search(): JSX.Element {
     )
   }
 
-  function SearchResults(data: string[] | string): JSX.Element {
-    if (data === errorMessage) return <div>{errorMessage}</div>
+  function SearchResults(data: string[][] | string): JSX.Element {
+    if (typeof data === 'string') return <div>{data}</div>
 
     return (
       <div className="search__results">
@@ -72,17 +70,16 @@ export default function Search(): JSX.Element {
               </tr>
             </thead>
             <tbody>
-              {typeof data !== 'string' &&
-                data.map((item: string, index: number) => {
-                  return (
-                    <tr key={index}>
-                      <td>{item[0]}</td>
-                      <td>{item[1]}</td>
-                      <td>{item[2]}</td>
-                      <td>{item[3]}</td>
-                    </tr>
-                  )
-                })}
+              {data.map((item: string[], index: number) => {
+                return (
+                  <tr key={index}>
+                    <td>{item[0]}</td>
+                    <td>{item[1]}</td>
+                    <td>{item[2]}</td>
+                    <td>{item[3]}</td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         ) : (

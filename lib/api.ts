@@ -1,8 +1,9 @@
-export async function get<T = any>(
+export async function get<T = unknown>(
   url: string,
   params?: Record<string, string | number | boolean>,
 ): Promise<T> {
   let fullUrl = url
+
   if (params) {
     const searchParams = new URLSearchParams()
     Object.entries(params).forEach(([key, value]) => {
@@ -13,5 +14,5 @@ export async function get<T = any>(
 
   const res = await fetch(fullUrl)
 
-  return await res.json()
+  return (await res.json()) as T
 }

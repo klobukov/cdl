@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server'
 import { query } from '@/lib/db'
+import { Row } from '@/lib/types'
 
-export async function GET(request: Request) {
+export async function GET(request: Request): Promise<NextResponse> {
   const { searchParams } = new URL(request.url)
   const search = searchParams.get('search')
 
@@ -24,11 +25,11 @@ export async function GET(request: Request) {
     values: [`%${search}%`, search],
   })
 
-  const formatted = result.map((row: any) => [
-    row.title,
-    row.time_ready,
-    row.price,
-    row.nomenc,
+  const formatted = (result as Row[]).map((row) => [
+    row.title as string,
+    row.time_ready as string,
+    row.price as string,
+    row.nomenc as string,
   ])
 
   return NextResponse.json(formatted)
