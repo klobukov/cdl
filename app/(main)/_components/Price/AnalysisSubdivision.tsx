@@ -1,7 +1,7 @@
-import React, { JSX, useEffect, useState } from 'react'
+import React, { JSX, useState } from 'react'
 import './subdivision.scss'
-import { dbErrorMessage, isDev } from '../../../../constants/common'
-import { get } from '@/lib/api'
+import useFetch from "@/lib/useFetch"
+import Preloader from "@/components/Preloader"
 
 export default function AnalysisSubdivision({ name }: { name: string }) {
   const [show, setShow] = useState<boolean>(false)
@@ -25,25 +25,11 @@ function AnalysisList({
   name: string
   show: boolean
 }): null | JSX.Element | JSX.Element[] {
-  const [data, setData] = useState<string[][] | null | string>(null)
-
-  useEffect(() => {
-    if (!show || data) return
-    const fetchData = async () => {
-      try {
-        const data = await get<string[][]>('/api/subdivision-items', { name })
-        setData(data)
-      } catch (err) {
-        if (isDev) console.error(err)
-        setData(dbErrorMessage)
-      }
-    }
-    fetchData()
-  }, [show])
+  const { data, error, isLoading } = useFetch<string[][]>('/api/subdivision-items', {params: {name}, deps: [show]})
 
   if (!show) return null
-  if (!data) return null
-  if (typeof data === 'string') return <div>{data}</div>
+  if (isLoading) return <Preloader />
+  if (error || !data) return <div>{error}</div>
 
   return data.map((item: string[], index: number) => (
     <div key={index}>

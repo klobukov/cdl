@@ -1,32 +1,12 @@
 'use client'
-import React, { JSX, useEffect, useState } from 'react'
 import AnalysisSubdivision from './AnalysisSubdivision'
 import './subdivisionsGroup.scss'
-import { dbErrorMessage, isDev } from '../../../../constants/common'
 import Search from './Search/Search'
-import { get } from '@/lib/api'
+import useFetch from "@/lib/useFetch"
+import Preloader from "@/components/Preloader"
 
 export default function Price() {
-  const [subdivisions, setSubdivisions] = useState<string[] | string | null>(
-    null,
-  )
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await get<string[]>('/api/analysis-subdivisions')
-        const sorted = data
-          .filter((item: string) => item !== 'Дополнительные услуги')
-          .concat('Дополнительные услуги')
-        setSubdivisions(sorted)
-      } catch (err) {
-        if (isDev) console.error(err)
-        setSubdivisions(dbErrorMessage)
-      }
-    }
-
-    fetchData()
-  }, [])
+  const { data: subdivisions, error, isLoading } = useFetch<string[]>('/api/analysis-subdivisions')
 
   return (
     <div>
@@ -46,9 +26,10 @@ export default function Price() {
     </div>
   )
 
-  function Subdivisions(): null | string | JSX.Element[] {
-    if (!subdivisions) return null
-    if (typeof subdivisions === 'string') return subdivisions
+  function Subdivisions() {
+    if (isLoading) return <Preloader />
+    if (error || !subdivisions) return <div>error</div>
+
     return subdivisions.map((item: string) => (
       <AnalysisSubdivision name={item} key={item} />
     ))
