@@ -5,11 +5,12 @@ import {dbErrorMessage} from "../constants/common";
 
 interface UseFetchOptions {
   params?: Record<string, string | number | boolean>
-  deps?: any[]
+  deps?: any[],
+  enabled?: boolean
 }
 
 export default function useFetch<T>(url: string, options?: UseFetchOptions) {
-  const { params, deps = [] } = options || {}
+  const { params, deps = [], enabled = true } = options || {}
 
   const [data, setData] = useState<T | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -17,6 +18,12 @@ export default function useFetch<T>(url: string, options?: UseFetchOptions) {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!enabled) {
+        setIsLoading(false)
+        setError(null)
+        return
+      }
+
       setIsLoading(true)
       try {
         const result = await get<T>(url, params)
@@ -32,7 +39,7 @@ export default function useFetch<T>(url: string, options?: UseFetchOptions) {
     }
 
     fetchData()
-  }, [url, JSON.stringify(params), ...deps])
+  }, [url, JSON.stringify(params), ...deps, enabled])
 
   return { data, error, isLoading }
 }

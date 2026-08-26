@@ -3,10 +3,10 @@ import AnalysisSubdivision from './AnalysisSubdivision'
 import './subdivisionsGroup.scss'
 import Search from './Search/Search'
 import useFetch from "@/lib/useFetch"
-import Preloader from "@/components/Preloader"
+import FetchWrapper from "@/components/FetchWrapper"
 
 export default function Price() {
-  const { data: subdivisions, error, isLoading } = useFetch<string[]>('/api/analysis-subdivisions')
+  const { data, error, isLoading } = useFetch<string[]>('/api/analysis-subdivisions')
 
   return (
     <div>
@@ -27,11 +27,10 @@ export default function Price() {
   )
 
   function Subdivisions() {
-    if (isLoading) return <Preloader />
-    if (error || !subdivisions) return <div>error</div>
-
-    return subdivisions.map((item: string) => (
-      <AnalysisSubdivision name={item} key={item} />
-    ))
+    return <FetchWrapper data={data} error={error} isLoading={isLoading}>
+      {data => data.map((item: string) => (
+        <AnalysisSubdivision name={item} key={item} />
+      ))}
+    </FetchWrapper>
   }
 }
