@@ -13,32 +13,28 @@ export default function SearchResults({
         <div>Результаты поиска: </div>
         <button onClick={onClose}>Закрыть</button>
       </div>
-      {data.length ? (
-        <table>
-          <thead>
-            <tr>
-              <th>Название исследования</th>
-              <th>Срок выполнения (суток)</th>
-              <th>Цена (руб.)</th>
-              <th>Код номенклатуры</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item: string[], index: number) => {
-              return (
-                <tr key={index}>
-                  <td>{item[0]}</td>
-                  <td>{item[1]}</td>
-                  <td>{item[2]}</td>
-                  <td>{item[3]}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      ) : (
-        <h3>К сожалению, по Вашему запросу ничего не найдено</h3>
-      )}
+      <table>
+        <thead>
+          <tr>
+            <th>Название исследования</th>
+            <th>Срок выполнения (суток)</th>
+            <th>Цена (руб.)</th>
+            <th>Код номенклатуры</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item: string[], index: number) => {
+            return (
+              <tr key={index}>
+                <td>{item[0]}</td>
+                <td>{item[1]}</td>
+                <td>{item[2]}</td>
+                <td>{item[3]}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
     </div>
   )
 }

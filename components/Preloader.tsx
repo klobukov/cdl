@@ -1,4 +1,3 @@
-// components/ui/Preloader.tsx
 export default function Preloader() {
   return (
     <div

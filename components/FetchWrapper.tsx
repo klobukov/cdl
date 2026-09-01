@@ -7,6 +7,7 @@ interface FetchWrapperProps<T> {
   isLoading: boolean
   children: (data: T) => ReactNode
   fallback?: ReactNode
+  enabled?: boolean
 }
 
 export default function FetchWrapper<T>({
@@ -15,10 +16,16 @@ export default function FetchWrapper<T>({
   isLoading,
   children,
   fallback,
+  enabled,
 }: FetchWrapperProps<T>) {
+  if (enabled === false) return null
+
   if (isLoading) return <Preloader />
   if (error) return <div className="text-red-500">{error}</div>
-  if (!data) return fallback || <div>Нет данных</div>
+  if (!data || (data instanceof Array && data.length == 0))
+    return (
+      fallback || <div>К сожалению, по Вашему запросу ничего не найдено.</div>
+    )
 
   return <>{children(data)}</>
 }

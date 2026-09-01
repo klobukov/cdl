@@ -11,7 +11,7 @@ export default function Search() {
   const [inputVal, setInputVal] = useState('')
   const debouncedInput = useDebounce(inputVal, 500)
   const searchValue = debouncedInput.trim()
-  const valueExist = !!inputVal
+  const enabled = !!(inputVal && searchValue)
 
   const {
     data: searchResults,
@@ -20,32 +20,33 @@ export default function Search() {
     isLoading,
   } = useFetch<string[][]>('/api/search', {
     params: { search: searchValue },
-    enabled: !!(valueExist && searchValue),
+    enabled,
   })
 
   return (
     <div className="search">
-      <form>
-        <input
-          value={inputVal}
-          onChange={(e) => setInputVal(e.target.value)}
-          placeholder="Введите запрос"
-        />
-        <button type="submit">Поиск</button>
-      </form>
-      {searchResults && (
-        <FetchWrapper data={searchResults} error={error} isLoading={isLoading}>
-          {(data) => (
-            <SearchResults
-              data={data}
-              onClose={() => {
-                setInputVal('')
-                setSearchResults(null)
-              }}
-            />
-          )}
-        </FetchWrapper>
-      )}
+      <input
+        value={inputVal}
+        onChange={(e) => setInputVal(e.target.value)}
+        placeholder="Введите запрос"
+      />
+      <FetchWrapper
+        data={searchResults}
+        error={error}
+        isLoading={isLoading}
+        enabled={enabled}
+        fallback={<h3>К сожалению, по Вашему запросу ничего не найдено.</h3>}
+      >
+        {(data) => (
+          <SearchResults
+            data={data}
+            onClose={() => {
+              setInputVal('')
+              setSearchResults(null)
+            }}
+          />
+        )}
+      </FetchWrapper>
     </div>
   )
 }
