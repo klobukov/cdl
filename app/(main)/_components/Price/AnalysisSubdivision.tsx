@@ -29,10 +29,14 @@ function AnalysisList({
     '/api/subdivision-items',
     { params: { name }, enabled: show },
   )
-  if (!show) return null
 
   return (
-    <FetchWrapper data={data} error={error} isLoading={isLoading}>
+    <FetchWrapper
+      data={data}
+      error={error}
+      isLoading={isLoading}
+      enabled={show}
+    >
       {(data) =>
         data.map((item: string[], index: number) => (
           <div key={index}>
