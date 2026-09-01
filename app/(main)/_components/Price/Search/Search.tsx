@@ -4,6 +4,7 @@ import { useState } from 'react'
 import useFetch from '@/lib/useFetch'
 import useDebounce from '@/lib/useDebounce'
 import './search.scss'
+import FetchWrapper from '@/components/FetchWrapper'
 import SearchResults from './SearchResults'
 
 export default function Search() {
@@ -12,9 +13,12 @@ export default function Search() {
   const searchValue = debouncedInput.trim()
   const valueExist = !!inputVal
 
-  const { data: searchResults, setData: setSearchResults } = useFetch<
-    string[][]
-  >('/api/search', {
+  const {
+    data: searchResults,
+    setData: setSearchResults,
+    error,
+    isLoading,
+  } = useFetch<string[][]>('/api/search', {
     params: { search: searchValue },
     enabled: !!(valueExist && searchValue),
   })
@@ -30,13 +34,17 @@ export default function Search() {
         <button type="submit">Поиск</button>
       </form>
       {searchResults && (
-        <SearchResults
-          data={searchResults}
-          onClose={() => {
-            setInputVal('')
-            setSearchResults(null)
-          }}
-        />
+        <FetchWrapper data={searchResults} error={error} isLoading={isLoading}>
+          {(data) => (
+            <SearchResults
+              data={data}
+              onClose={() => {
+                setInputVal('')
+                setSearchResults(null)
+              }}
+            />
+          )}
+        </FetchWrapper>
       )}
     </div>
   )

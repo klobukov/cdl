@@ -22,21 +22,15 @@ export default function Price() {
           <div>Код номенклатуры</div>
         </div>
         <div className="subdivisionsGroup__tree">
-          <Subdivisions />
+          <FetchWrapper data={data} error={error} isLoading={isLoading}>
+            {(data) =>
+              data.map((item: string) => (
+                <AnalysisSubdivision name={item} key={item} />
+              ))
+            }
+          </FetchWrapper>
         </div>
       </div>
     </div>
   )
-
-  function Subdivisions() {
-    return (
-      <FetchWrapper data={data} error={error} isLoading={isLoading}>
-        {(data) =>
-          data.map((item: string) => (
-            <AnalysisSubdivision name={item} key={item} />
-          ))
-        }
-      </FetchWrapper>
-    )
-  }
 }
