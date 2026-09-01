@@ -5,7 +5,7 @@ import { dbErrorMessage } from '../constants/common'
 
 interface UseFetchOptions {
   params?: Record<string, string | number | boolean>
-  deps?: any[]
+  deps?: unknown[]
   enabled?: boolean
 }
 
