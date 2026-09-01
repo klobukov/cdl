@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { get } from '@/lib/api'
 import { isDev } from '@/constants/common'
-import {dbErrorMessage} from "../constants/common";
+import { dbErrorMessage } from '../constants/common'
 
 interface UseFetchOptions {
   params?: Record<string, string | number | boolean>
-  deps?: any[],
+  deps?: any[]
   enabled?: boolean
 }
 
@@ -41,5 +41,5 @@ export default function useFetch<T>(url: string, options?: UseFetchOptions) {
     fetchData()
   }, [url, JSON.stringify(params), ...deps, enabled])
 
-  return { data, error, isLoading }
+  return { data, error, isLoading, setData }
 }

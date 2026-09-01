@@ -1,7 +1,9 @@
 // components/ui/Preloader.tsx
 export default function Preloader() {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
+    <div
+      style={{ display: 'flex', justifyContent: 'center', padding: '20px 0' }}
+    >
       <div
         style={{
           width: 32,

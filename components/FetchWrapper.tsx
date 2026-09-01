@@ -10,12 +10,12 @@ interface FetchWrapperProps<T> {
 }
 
 export default function FetchWrapper<T>({
-                                  data,
-                                  error,
-                                  isLoading,
-                                  children,
-                                  fallback,
-                                }: FetchWrapperProps<T>) {
+  data,
+  error,
+  isLoading,
+  children,
+  fallback,
+}: FetchWrapperProps<T>) {
   if (isLoading) return <Preloader />
   if (error) return <div className="text-red-500">{error}</div>
   if (!data) return fallback || <div>Нет данных</div>

@@ -1,7 +1,7 @@
 import { JSX, useState } from 'react'
 import './subdivision.scss'
-import useFetch from "@/lib/useFetch"
-import FetchWrapper from "@/components/FetchWrapper"
+import useFetch from '@/lib/useFetch'
+import FetchWrapper from '@/components/FetchWrapper'
 
 export default function AnalysisSubdivision({ name }: { name: string }) {
   const [show, setShow] = useState<boolean>(false)
@@ -25,17 +25,24 @@ function AnalysisList({
   name: string
   show: boolean
 }): null | JSX.Element | JSX.Element[] {
-  const { data, error, isLoading } = useFetch<string[][]>('/api/subdivision-items', {params: {name}, enabled: show})
+  const { data, error, isLoading } = useFetch<string[][]>(
+    '/api/subdivision-items',
+    { params: { name }, enabled: show },
+  )
   if (!show) return null
 
-  return <FetchWrapper data={data} error={error} isLoading={isLoading}>
-    {data => data.map((item: string[], index: number) => (
-      <div key={index}>
-        <div>{item[0]}</div>
-        <div>{item[1]}</div>
-        <div>{item[2]}</div>
-        <div>{item[3]}</div>
-      </div>
-    ))}
-  </FetchWrapper>
+  return (
+    <FetchWrapper data={data} error={error} isLoading={isLoading}>
+      {(data) =>
+        data.map((item: string[], index: number) => (
+          <div key={index}>
+            <div>{item[0]}</div>
+            <div>{item[1]}</div>
+            <div>{item[2]}</div>
+            <div>{item[3]}</div>
+          </div>
+        ))
+      }
+    </FetchWrapper>
+  )
 }
