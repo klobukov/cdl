@@ -1,3 +1,5 @@
+import cache from 'memory-cache'
+
 export async function get<T = unknown>(
   url: string,
   params?: Record<string, string | number | boolean>,
@@ -12,7 +14,17 @@ export async function get<T = unknown>(
     fullUrl += `?${searchParams.toString()}`
   }
 
-  const res = await fetch(fullUrl)
+  const cacheKey = fullUrl
+  const cachedData = cache.get<T>(cacheKey)
 
-  return (await res.json()) as T
+  if (cachedData) {
+    return cachedData
+  }
+
+  const res = await fetch(fullUrl)
+  const data = (await res.json()) as T
+
+  cache.put(cacheKey, data, 60 * 60 * 1000) // 1 h
+
+  return data
 }
