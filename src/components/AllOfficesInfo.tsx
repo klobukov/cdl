@@ -17,6 +17,7 @@ export default function AllOfficesInfo() {
             <p>Забор биоматериала: {office.samplingBioMaterialTime}</p>
             <p>Выдача результатов: {office.resultsTime}</p>
             <p>Телефон: {office.phone}</p>
+            <p>Моб.: {office.mobile}</p>
             <a
               href={office.locationForLink}
               target="_blank"

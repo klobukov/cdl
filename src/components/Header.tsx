@@ -1,5 +1,5 @@
 import React from 'react'
-import { mainOffice, mk1 } from '../allOffices'
+import { mainOffice } from '../allOffices'
 import ReactSwipe from 'react-swipe'
 import '../Styles/header.scss'
 import logo from '../images/logo.jpg'
@@ -35,16 +35,9 @@ export default class Header extends React.Component {
               <br />
               Тел.: {mainOffice.phone}
               <br />
+              Моб.: {mainOffice.mobile}
+              <br />
               email: {mainOffice.email}
-              <br />
-              <br />
-              <span>{mk1.address}</span>
-              <br />
-              Забор биоматериала: {mk1.samplingBioMaterialTime}
-              <br />
-              Выдача результатов: {mk1.resultsTime}
-              <br />
-              Тел.: {mk1.phone}
               <br />
               <br />
             </p>

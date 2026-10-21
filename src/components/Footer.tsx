@@ -33,7 +33,8 @@ export default function Footer() {
           <div key={office.id}>
             <p>{office.header}</p>
             <p>{office.address}</p>
-            <p>Телефон: {office.phone}</p>
+            <p>Тел: {office.phone}</p>
+            <p>Моб: {office.mobile}</p>
             {office.email ? <p>Email: {office.email}</p> : null}
           </div>
         ))}
